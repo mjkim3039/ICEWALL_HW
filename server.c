@@ -32,7 +32,7 @@ int main() {
     addr.sun_family = AF_UNIX;
     strcpy(addr.sun_path, SOCKET_PATH);
 
-    unlink(SOCKET_PATH); // 기존 파일 있으면 제거
+    unlink(SOCKET_PATH);
     if (bind(server_fd, (struct sockaddr*)&addr, sizeof(addr)) < 0) {
         perror("bind");
         exit(1);
@@ -59,7 +59,7 @@ int main() {
             printf("Received: %s\n", buf);
 
             if (strcmp(buf, "ping") == 0) {
-                write(client_fd, "pong", 4);
+                write(client_fd, "Minjun", 6);
             } else {
                 write(client_fd, "unknown", 7);
             }

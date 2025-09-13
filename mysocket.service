@@ -1,0 +1,11 @@
+[Unit]
+Description=Unix Domain Socket Server Example
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
